@@ -1,0 +1,69 @@
+<main class="weather-main">
+    <mat-toolbar class="header">
+        <span>Weather Forecast</span>
+        <mat-slide-toggle></mat-slide-toggle>
+        <mat-button-toggle-group (change)="languageChanged($event)">
+            <mat-button-toggle value="tc">中文</mat-button-toggle>
+            <mat-button-toggle value="en">English</mat-button-toggle>
+        </mat-button-toggle-group>
+    </mat-toolbar>
+    
+        <div class="search-city">
+            <mat-form-field class="city-input">
+                <mat-label>Your District Name</mat-label>
+                <mat-select (selectionChange)="selectChanged($event)">
+                        @for (item of districtsData; track $index) {
+                            <mat-option [value]="item.place">{{item.place}}</mat-option>
+                        }
+                </mat-select>
+                <!-- <input matInput placeholder="Your District Name"> -->
+            </mat-form-field>
+        </div>
+    
+
+    <mat-card class="weather-card">
+        <mat-card-content class="card-content">
+            
+            <div>
+                <h2>
+                    Current weather and forecasts in your district
+                </h2>
+            </div>
+            @if (todayWeather) {
+                <div class="today-info">
+                    <div>
+                        <div class="weather-small-icon"><img [ngSrc]="'assets/img/pic'+ todayWeather.icon +'.png'" width="80" height="80" ></div>
+                    </div>
+                    <div class="today-temperature">
+                        {{todayWeather.temperature}}°C
+                        <!-- <p>Hong Kong</p> -->
+                        <!-- <p>{{todayWeather.warningMessage}}</p> -->
+                    </div>
+                    <div class="current-datetime">
+                        <p>Last Update Time:</p>
+                        {{todayWeather.lastUpdateTime}}
+                    </div>
+                </div>
+                <div class="warning-msg">
+                    {{todayWeather.warningMessage}}
+                </div>
+            }
+            
+            
+            <mat-divider></mat-divider>
+            <div class="forecasts-section">
+                @for (item of weatherForecasts; track $index) {
+                    <div class="forecasts-info">
+                        <div>{{item.week}}</div>
+                        <div>{{item.forecastDate}}</div>
+                        <div class="weather-small-icon"><img [ngSrc]="'assets/img/pic'+ item.ForecastIcon +'.png'" width="36" height="36" ></div>
+                        <div>{{item.forecastMaxtemp.value}}</div>
+                        <div>{{item.forecastMintemp.value}}</div>
+                        <!-- <div>{{item.forecastWeather}}</div> -->
+                    </div> 
+                }
+                
+            </div>
+        </mat-card-content>
+    </mat-card>
+</main>

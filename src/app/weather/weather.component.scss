@@ -1,0 +1,60 @@
+.weather-main {
+    
+}
+
+.today-info {
+    display: flex;
+}
+
+.today-info div {
+    width: 100%;
+}
+
+.weather-card {
+    max-width: fit-content;
+    margin: auto;
+}
+
+.weather-icon {
+    width:100px;
+    height: 100px;
+}
+
+.card-content {
+}
+
+.city-input {
+    width: 100%;
+}
+
+.forecasts-section {
+    display:flex;
+}
+
+.forecasts-info {
+    margin: 5px;
+    // width: 100%;
+}
+
+.forecasts-info div {
+    display: flex;
+    justify-content: center;
+}
+
+.search-city {
+    width: 30%;
+    margin: auto
+}
+
+.weather-small-icon {
+    display: flex;
+    justify-content: center;
+}
+
+.today-temperature {
+    font-size: 65px;
+}
+
+.warning-msg {
+    color: #db6c39;
+}
